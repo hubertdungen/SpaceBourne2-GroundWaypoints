@@ -7,7 +7,7 @@ step out or jump on the hoverbike, and those markers vanish: you cross the plane
 Ground Waypoints brings them back on the ground: a marker, the name and the distance, in the same
 colours the game uses from the ship.
 
-Version 0.1.0 · UE4SS Lua mod · works alone or with the rest of the
+Version 0.1.0 · [Nexus Mods page](https://www.nexusmods.com/spacebourne2/mods/13) · UE4SS Lua mod · works alone or with the rest of the
 [realism set](#part-of-the-spacebourne-2-realism-set). Idea by **TheCalcMan** (Steam).
 
 ## What it does
@@ -120,7 +120,7 @@ To install them all at once, use the installer:
 | **SB2 HOTAS** — HOTAS, triple screens, head tracking | released: [GitHub](https://github.com/hubertdungen/SpaceBourne2-HOTAS) · [Nexus Mods](https://www.nexusmods.com/spacebourne2/mods/8) |
 | **Faction Power** — your deeds earn your faction power | released: [GitHub](https://github.com/hubertdungen/SpaceBourne2-FactionPower) · [Nexus Mods](https://www.nexusmods.com/spacebourne2/mods/9) |
 | **Tactical Engineering** — realistic deployable turrets | released: [GitHub](https://github.com/hubertdungen/SpaceBourne2-TacticalEngineering) · [Nexus Mods](https://www.nexusmods.com/spacebourne2/mods/10) |
-| **Ground Waypoints** — planet markers on foot and on the hoverbike (this mod) | released: [GitHub](https://github.com/hubertdungen/SpaceBourne2-GroundWaypoints) |
+| **Ground Waypoints** — planet markers on foot and on the hoverbike (this mod) | released: [GitHub](https://github.com/hubertdungen/SpaceBourne2-GroundWaypoints) · [Nexus Mods](https://www.nexusmods.com/spacebourne2/mods/13) |
 | Ammo Discipline, Tactical First Person, Get Out of the Way | coming |
 
 ## Thanks
