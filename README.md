@@ -7,7 +7,7 @@ step out or jump on the hoverbike, and those markers vanish: you cross the plane
 Ground Waypoints brings them back on the ground: a marker, the name and the distance, in the same
 colours the game uses from the ship.
 
-Version 0.1.0 · [Nexus Mods page](https://www.nexusmods.com/spacebourne2/mods/13) · UE4SS Lua mod · works alone or with the rest of the
+Version 0.1.1 · [Nexus Mods page](https://www.nexusmods.com/spacebourne2/mods/13) · UE4SS Lua mod · works alone or with the rest of the
 [realism set](#part-of-the-spacebourne-2-realism-set). Idea by **TheCalcMan** (Steam).
 
 ## What it does
@@ -26,7 +26,7 @@ Version 0.1.0 · [Nexus Mods page](https://www.nexusmods.com/spacebourne2/mods/1
   hoverbike stay the game's own.
 - **Out of the way.** Hidden in the ship, in dungeons and stations, in photo mode, with a menu open,
   and when the game hides its HUD.
-- **On by default.** Press **0** (zero) to show or hide the markers.
+- **On by default, no key needed.** Markers appear on planets by themselves.
 
 ## Requirements
 
@@ -36,7 +36,7 @@ Version 0.1.0 · [Nexus Mods page](https://www.nexusmods.com/spacebourne2/mods/1
 
 ## Install
 
-1. Download `GroundWaypoints-0.1.0.zip` from the
+1. Download `GroundWaypoints-0.1.1.zip` from the
    [releases](https://github.com/hubertdungen/SpaceBourne2-GroundWaypoints/releases).
 2. Extract it into the game folder (`...\steamapps\common\SpaceBourne 2\`). It adds
    `SB2\Binaries\Win64\Mods\GroundWaypoints\`; the `enabled.txt` inside turns it on.
@@ -50,15 +50,8 @@ saves.
 
 ## Controls
 
-| Key | What it does |
-|---|---|
-| **0** (zero, top row) | Show / hide the markers (a short "Ground Waypoints ON / OFF" note on screen). |
-
-The game binds **0** nowhere (we checked its key presets and every key it reads directly), and no
-other mod of the realism set uses it plain (Shift+0 is Ammo Discipline's; plain 0 stays quiet while
-Shift is held). Change it or remove it with `ToggleKey` in `scripts\config.lua`.
-The game's own keys (F1, F2, F5, F6, F8, F10, F11, F12, I for cargo, P as a second Escape) and Ctrl or
-Alt (map and crouch on foot) are refused.
+No key needed: markers show on planets automatically. To add an on/off key, set `ToggleKey` in
+`scripts\config.lua` (for example `"0"`).
 
 ## Settings
 
@@ -66,7 +59,7 @@ Edit `Mods\GroundWaypoints\scripts\config.lua`. Every line is optional.
 
 - `Enabled`: `false` switches the mod off completely.
 - `StartOn`: start with the markers shown (`true`) or hidden.
-- `ToggleKey`: `"0"` by default; `""` for no key.
+- `ToggleKey`: none by default; for example `"0"` to add an on/off key.
 - `OnFoot` / `OnHoverbike`: where markers show.
 - `Places` / `Locations` / `PointsOfInterest`: what is marked.
 - `MaxDistance` (600 000 m), `PoiMaxDistance` (5 000 m), `HideWithinMeters` (40 m).
@@ -87,7 +80,7 @@ each frame it only places and draws the markers. Details: [DESIGN.md](DESIGN.md)
 
 Tested in game on 2026-10-31 on planet Oclite (details in [DESIGN.md](DESIGN.md), section 8):
 - on foot and on the hoverbike, the markers, names, distances and edge arrows;
-- the real 0 key (the game does nothing else with it);
+- the optional 0 key (the game does nothing else with it);
 - the game's own markers (your ship) unchanged;
 - 12 markers at once, up to 460 km away;
 - frame times with the mod on vs off: no measurable difference (120 vs 118 fps, same median and p99);

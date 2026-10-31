@@ -12,14 +12,10 @@ return {
     -- Markers start ON. false = start hidden (then use ToggleKey to show them).
     StartOn = true,
 
-    -- Key to show / hide the markers. "0" (zero, top row) by default: the game binds it nowhere
-    -- (no key preset, no raw key event); it stays quiet while Shift is held (Shift+0 is Ammo
-    -- Discipline's). "" = no key.
-    -- Any UE4SS key name ("0", "DEL", "F7"...), optionally with Shift. Refused: the game's own keys
-    -- F1, F2, F5, F6, F8, F10, F11, F12 (with or without Shift), plain I (cargo) and P (a second
-    -- Escape), plain F3 / F4 (Silent Ops on foot), Shift+0 (Ammo Discipline), and Ctrl or Alt
-    -- (map and crouch on foot).
-    ToggleKey = "0",
+    -- Optional key to show / hide the markers. None by default: markers only appear on a planet's
+    -- surface, on foot or on the hoverbike. Example: ToggleKey = "0" (zero, top row, free in the
+    -- game). Keys the game or other realism-set mods use are refused (see DESIGN.md).
+    ToggleKey = "",
 
     -- Where the markers show.
     OnFoot = true,

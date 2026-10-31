@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.1.1 — 2026-10-31
+
+- **No key by default.** Markers only appear on a planet's surface, on foot or on the hoverbike, so
+  the mod needs no key. `ToggleKey` in `scripts\config.lua` still adds one (for example `"0"`).
+- Shorter, plainer key text in the description.
+
 ## 0.1.0 — 2026-10-31
 
 First release. Idea by **TheCalcMan** (Steam): show the planet waypoints on the ground, so crossing a

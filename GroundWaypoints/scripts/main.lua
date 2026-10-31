@@ -15,7 +15,7 @@
       (position, name, flags) is kept, never actor objects between frames.
 ]]
 
-local VERSION = "0.1.0"
+local VERSION = "0.1.1"
 
 -- Game names (the only things to fix after a game patch) -------------------------------------
 local G = {
@@ -67,7 +67,7 @@ local function warn(...) print("[GroundWaypoints] " .. write("WARN ", ...) .. "\
 
 -- Settings ---------------------------------------------------------------------------------
 local defaults = {
-    Enabled = true, StartOn = true, ToggleKey = "0", OnFoot = true, OnHoverbike = true,
+    Enabled = true, StartOn = true, ToggleKey = "", OnFoot = true, OnHoverbike = true,
     Places = true, Locations = true, PointsOfInterest = true,
     MaxDistance = 600000, PoiMaxDistance = 5000, HideWithinMeters = 40, MaxMarkers = 12,
     OffscreenArrows = true, MaxOffscreenArrows = 4, MarkerSize = 18, TextScale = 1.0,
@@ -595,7 +595,7 @@ LoopAsync(1000, function()
     return false
 end)
 
--- Toggle key (default plain 0: bound nowhere in the game, neither in its key presets nor as a raw key) ------------------------------
+-- Optional toggle key (none by default; "0" is free in the game: no key preset, no raw key event) ------------------------------
 -- Realism set key plan: the game's keys are refused with or without Shift, plain F3/F4 belong to
 -- Silent Ops on foot, and Ctrl / Alt are game actions on foot (map, crouch). UE4SS matches
 -- modifiers exactly, so plain 0 stays quiet while Shift is held (Shift+0 = Ammo Discipline, rule 3).

@@ -81,7 +81,9 @@ Measured cost: see §8.
 `config.lua`: `Enabled` (master switch, first line), `StartOn`, `ToggleKey`, kinds on/off,
 ranges, `MaxMarkers`, `HideWithinMeters`, `OffscreenArrows`, `MarkerSize`, `TextScale`, colours.
 
-Key: **plain 0** (zero, top row) shows / hides the markers (key plan rev 2e). Every Shift+F-key of the
+Key: **none by default** since 0.1.1 (the markers only draw on a planet's surface, on foot or on the
+hoverbike, so they never get in the way in space). The optional `ToggleKey` suggests **plain 0**
+(zero, top row; key plan rev 2e). Every Shift+F-key of the
 shared plan is taken. The game's key presets (`1Data/1_Keybings/AllPresets`, compared without case)
 bind every letter except **P**, and `MSM1_X_Shared` binds a lowercase `i` next to the cargo
 interface. But a scan of all 35,059 packages for raw key events found
