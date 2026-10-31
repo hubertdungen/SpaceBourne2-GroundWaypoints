@@ -89,11 +89,9 @@ Tested in game on 2026-10-31 on planet Oclite (details in [DESIGN.md](DESIGN.md)
 - on foot and on the hoverbike, the markers, names, distances and edge arrows;
 - the real 0 key (the game does nothing else with it);
 - the game's own markers (your ship) unchanged;
-- cost: about 0.25 ms a frame with 2 markers;
+- 12 markers at once, up to 460 km away;
+- frame times with the mod on vs off: no measurable difference (120 vs 118 fps, same median and p99);
 - your saves untouched.
-
-Not tested yet: a screen full of markers (up to 12) and the frame time with all of them; it should
-stay well under 1 ms a frame.
 
 Known limits:
 
@@ -101,8 +99,9 @@ Known limits:
   ship.
 - **Point-of-interest names come from the game's internal names** ("Ship Crash", "Raided House"…), so
   they are in English.
-- **The first time you step out on a planet after starting the game late in a session** (for example
-  after reloading the mod), it may search once for places it missed: about 0.2 s of small stutters.
+- **Two places in the same direction** can overlap their labels.
+- **If the mod is reloaded mid-game**, the first time you step out on a planet it may search once for
+  places it missed: about 0.2 s of small stutters.
 
 ## Part of the SpaceBourne 2 realism set
 

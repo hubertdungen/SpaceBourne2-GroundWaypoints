@@ -118,6 +118,16 @@ before and after: all 81 files identical), with HTR, Split Controls, Silent Ops 
 | Cost, 9 markers (old code: engine `Project`, 6 calls a marker) | 0.9–1.1 ms per frame → now Lua projection and 2 calls a marker |
 | Safety-net `FindAllOf` | 4 × ~50 ms the first time on foot after a load; now only when the mod started late or after a level change it could not see |
 
-Not tested yet (the game would not start again with the PC in a remote session, 20:00 and 20:07:
-"GameThread timed out waiting for RenderThread"): the 600 km ranges with all 12 markers on screen,
-frame times with the mod on vs off over 30 s, and the no-reseed change after a load.
+Final check, 21:00–21:05 (the game would not start at 20:00 and 20:07 with the PC in a remote session:
+"GameThread timed out waiting for RenderThread"; it started fine with the screen on):
+
+| Check | Result |
+|---|---|
+| Long ranges | 12 markers on the horizon (Kare Village 111.4 km, Omba Picket 254.5 km, Pit of Twinn 363.5 km, Lair of McMains…) plus a nearby point of interest ("Rock") and an edge arrow |
+| Lua projection vs the engine's `Project` | identical (820,723 and 820,723) |
+| After a load | no safety-net search: the places were tracked as the game created them |
+| Drawing, 12 markers | 0.62 ms per frame on average (3 ms max); 4 Hz tick 0.45–0.58 ms |
+| Frames, 32 s each, standing on foot | **mod on**: 120 fps, median 8.0 ms, p99 10 ms, max 16 ms, 0 spikes; **mod off**: 118 fps, median 8.0 ms, p99 11 ms, max 91 ms (6 game spikes, mod off). No measurable difference |
+| Real 0 key | off and on again |
+
+Seen, not yet changed: two places in the same direction can overlap their labels.
