@@ -15,7 +15,7 @@
       (position, name, flags) is kept, never actor objects between frames.
 ]]
 
-local VERSION = "0.1.1"
+local VERSION = "0.1.2"
 
 -- Game names (the only things to fix after a game patch) -------------------------------------
 local G = {
@@ -32,7 +32,7 @@ local G = {
     SkipLocationClass = { DiretkEnterPoint_C = true, SafeLocationPlanet_C = true },
     FootClass = "Q1_Character_C",
     BikeClass = "BP_Hover_Car_C",
-    PlanetSurface = 1, -- Game_Builder.PlayerIsAt: 0 space, 1 planet surface, 2 dungeon, ...
+    Space = 0, PlanetSurface = 1, -- Game_Builder.PlayerIsAt: 0 space, 1 planet surface, 2 dungeon, ...
     Assets = {
         font = "/Engine/EngineFonts/Roboto.Roboto",
         fontDF = "/Engine/EngineFonts/RobotoDistanceField.RobotoDistanceField",
@@ -251,13 +251,20 @@ local function readEntry(e, a, now)
 end
 
 -- 4 times a second: queue -> list, re-check a slice of the list, read new places.
--- atSurface: Game_Builder.PlayerIsAt is "planet surface" (in the ship too).
-local function maintain(now, atSurface, onFootOrBike)
+-- where: Game_Builder.PlayerIsAt (1 = planet surface, in the ship too).
+local function maintain(now, where, onFootOrBike)
+    local atSurface = where == G.PlanetSurface
     for _, p in ipairs(R.pending) do -- queued less than a tick ago: still alive
         if valid(p.obj) then track(p.obj, p.kind, p.born) end
     end
     R.pending = {}
-    if R.wasSurface and not atSurface then dropBefore(now) end -- the planet's actors go away
+    if R.wasSurface and not atSurface then
+        -- Off to space: the planet's actors go away and the next planet's are new (the game tells us
+        -- about each). Into a dungeon (or anywhere else) the planet stays loaded, so nothing tells us
+        -- about its places again: look them up once we are back (0.1.2; before, only the points of
+        -- interest the game spawns again came back after a dungeon).
+        dropBefore(now, where ~= G.Space)
+    end
     R.wasSurface = atSurface
     if not atSurface then return end
     if onFootOrBike then -- safety net: one FindAllOf per class (50-70 ms), only when needed
@@ -351,10 +358,11 @@ local function tick(hud, now)
         R.gapAt = nil
     end
     local kind = hasPawn and pawnKind(pawn) or nil
-    local atSurface = whereIsPlayer(hud) == G.PlanetSurface
+    local where = whereIsPlayer(hud)
+    local atSurface = where == G.PlanetSurface
     local onSurface = kind ~= nil and atSurface
     local t0 = os.clock()
-    maintain(now, atSurface, onSurface)
+    maintain(now, where, onSurface)
     local dt = os.clock() - t0
     S.stats.scans, S.stats.scanTime = S.stats.scans + 1, S.stats.scanTime + dt
     if dt > S.stats.scanMax then S.stats.scanMax = dt end

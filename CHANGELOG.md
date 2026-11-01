@@ -1,5 +1,14 @@
 # Changelog
 
+## 0.1.2 — 2026-11-01
+
+Thanks to **TheCalcMan** (Steam) for the report.
+
+- **The orange markers come back after a dungeon.** After you left a dungeon only the small blue
+  points of interest showed: outposts, cities and dungeon entrances stayed hidden until you flew
+  away and landed again. The planet's places are now looked up again when you come out.
+- Install section: the realism set installer first, the manual install second.
+
 ## 0.1.1 — 2026-10-31
 
 - **No key by default.** Markers only appear on a planet's surface, on foot or on the hoverbike, so

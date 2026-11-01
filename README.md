@@ -7,7 +7,7 @@ step out or jump on the hoverbike, and those markers vanish: you cross the plane
 Ground Waypoints brings them back on the ground: a marker, the name and the distance, in the same
 colours the game uses from the ship.
 
-Version 0.1.1 · [Nexus Mods page](https://www.nexusmods.com/spacebourne2/mods/13) · UE4SS Lua mod · works alone or with the rest of the
+Version 0.1.2 · [Nexus Mods page](https://www.nexusmods.com/spacebourne2/mods/13) · UE4SS Lua mod · works alone or with the rest of the
 [realism set](#part-of-the-spacebourne-2-realism-set). Idea by **TheCalcMan** (Steam).
 
 ## What it does
@@ -31,19 +31,20 @@ Version 0.1.1 · [Nexus Mods page](https://www.nexusmods.com/spacebourne2/mods/1
 ## Requirements
 
 - SpaceBourne 2 (Steam).
-- [UE4SS 3.0.1](https://github.com/UE4SS-RE/RE-UE4SS/releases/tag/v3.0.1). Installing HTR or the
-  realism set installer installs it too.
+- [UE4SS 3.0.1](https://github.com/UE4SS-RE/RE-UE4SS/releases/tag/v3.0.1), a free script loader
+  for Unreal Engine games. Installing HTR or the realism set installer installs it too.
 
 ## Install
 
-1. Download `GroundWaypoints-0.1.1.zip` from the
+Option A (recommended): the [SpaceBourne 2 Realism installer](https://www.nexusmods.com/spacebourne2/mods/11).
+
+Option B, manual:
+
+1. Download `GroundWaypoints-0.1.2.zip` from the
    [releases](https://github.com/hubertdungen/SpaceBourne2-GroundWaypoints/releases).
 2. Extract it into the game folder (`...\steamapps\common\SpaceBourne 2\`). It adds
    `SB2\Binaries\Win64\Mods\GroundWaypoints\`; the `enabled.txt` inside turns it on.
 3. That's it: land on a planet and step out.
-
-Manual install: copy the `GroundWaypoints` folder from this repository into
-`SpaceBourne 2\SB2\Binaries\Win64\Mods\`.
 
 Uninstall: delete `SB2\Binaries\Win64\Mods\GroundWaypoints`. Ground Waypoints never writes to your
 saves.
@@ -78,6 +79,7 @@ each frame it only places and draws the markers. Details: [DESIGN.md](DESIGN.md)
 
 ## Status and known limits
 
+<!-- nexus:skip -->
 Tested in game on 2026-10-31 on planet Oclite (details in [DESIGN.md](DESIGN.md), section 8):
 - on foot and on the hoverbike, the markers, names, distances and edge arrows;
 - the optional 0 key (the game does nothing else with it);
@@ -85,6 +87,10 @@ Tested in game on 2026-10-31 on planet Oclite (details in [DESIGN.md](DESIGN.md)
 - 12 markers at once, up to 460 km away;
 - frame times with the mod on vs off: no measurable difference (120 vs 118 fps, same median and p99);
 - your saves untouched.
+
+0.1.2 (places found again after a dungeon) was checked against the mod's own logic; it has not
+been run in a dungeon yet.
+<!-- /nexus:skip -->
 
 Known limits:
 

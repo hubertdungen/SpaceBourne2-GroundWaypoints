@@ -2,7 +2,7 @@
 
 From your ship, SpaceBourne 2 marks a planet's outposts, cities, dungeons and mission sites. Land, step out or jump on the hoverbike, and those markers vanish: you cross the planet guessing. Ground Waypoints brings them back on the ground: a marker, the name and the distance, in the same colours the game uses from the ship.
 
-Version 0.1.1 · [url=https://www.nexusmods.com/spacebourne2/mods/13]Nexus Mods page[/url] · UE4SS Lua mod · works alone or with the rest of the [url=#part-of-the-spacebourne-2-realism-set]realism set[/url]. Idea by [b]TheCalcMan[/b] (Steam).
+Version 0.1.2 · [url=https://www.nexusmods.com/spacebourne2/mods/13]Nexus Mods page[/url] · UE4SS Lua mod · works alone or with the rest of the [url=#part-of-the-spacebourne-2-realism-set]realism set[/url]. Idea by [b]TheCalcMan[/b] (Steam).
 
 [line]
 [size=5][b]What it does[/b][/size]
@@ -25,19 +25,21 @@ Version 0.1.1 · [url=https://www.nexusmods.com/spacebourne2/mods/13]Nexus Mods 
 
 [list]
 [*]SpaceBourne 2 (Steam).
-[*][url=https://github.com/UE4SS-RE/RE-UE4SS/releases/tag/v3.0.1]UE4SS 3.0.1[/url]. Installing HTR or the realism set installer installs it too.
+[*][url=https://github.com/UE4SS-RE/RE-UE4SS/releases/tag/v3.0.1]UE4SS 3.0.1[/url], a free script loader for Unreal Engine games. Installing HTR or the realism set installer installs it too.
 [/list]
 
 [line]
 [size=5][b]Install[/b][/size]
 
+Option A (recommended): the [url=https://www.nexusmods.com/spacebourne2/mods/11]SpaceBourne 2 Realism installer[/url].
+
+Option B, manual:
+
 [list=1]
-[*]Download GroundWaypoints-0.1.1.zip from the [url=https://github.com/hubertdungen/SpaceBourne2-GroundWaypoints/releases]releases[/url].
+[*]Download GroundWaypoints-0.1.2.zip from the [url=https://github.com/hubertdungen/SpaceBourne2-GroundWaypoints/releases]releases[/url].
 [*]Extract it into the game folder (...\steamapps\common\SpaceBourne 2\). It adds SB2\Binaries\Win64\Mods\GroundWaypoints\; the enabled.txt inside turns it on.
 [*]That's it: land on a planet and step out.
 [/list]
-
-Manual install: copy the GroundWaypoints folder from this repository into SpaceBourne 2\SB2\Binaries\Win64\Mods\.
 
 Uninstall: delete SB2\Binaries\Win64\Mods\GroundWaypoints. Ground Waypoints never writes to your saves.
 
@@ -67,20 +69,10 @@ The text follows the game's own [b]indicator scale[/b] setting, like the ship's 
 [line]
 [size=5][b]How it works[/b][/size]
 
-The game draws all its markers on the HUD canvas (Q1Hud). On foot its planet-place function stops at once, and on the hoverbike it only draws an active mission's site. There is no switch to flip, so Ground Waypoints draws the markers itself on the same canvas, with the game's own font, icons and colours. It reads the places' positions and names a few times a second and keeps only plain data; each frame it only places and draws the markers. Details: [url=https://github.com/hubertdungen/SpaceBourne2-GroundWaypoints/blob/main/DESIGN.md]DESIGN.md[/url].
+The game draws all its markers on the HUD canvas (Q1Hud). On foot its planet-place function stops at once, and on the hoverbike it only draws an active mission's site. There is no switch to flip, so Ground Waypoints draws the markers itself on the same canvas, with the game's own font, icons and colours. It reads the places' positions and names a few times a second and keeps only plain data; each frame it only places and draws the markers. Details: [url=https://github.com/hubertdungen/SpaceBourne2-GroundWaypoints/blob/mainDESIGN.md]DESIGN.md[/url].
 
 [line]
 [size=5][b]Status and known limits[/b][/size]
-
-Tested in game on 2026-10-31 on planet Oclite (details in [url=https://github.com/hubertdungen/SpaceBourne2-GroundWaypoints/blob/main/DESIGN.md]DESIGN.md[/url], section 8):
-[list]
-[*]on foot and on the hoverbike, the markers, names, distances and edge arrows;
-[*]the optional 0 key (the game does nothing else with it);
-[*]the game's own markers (your ship) unchanged;
-[*]12 markers at once, up to 460 km away;
-[*]frame times with the mod on vs off: no measurable difference (120 vs 118 fps, same median and p99);
-[*]your saves untouched.
-[/list]
 
 Known limits:
 
@@ -119,4 +111,4 @@ Coming soon: Tactical First Person.
 [line]
 [size=5][b]License[/b][/size]
 
-MIT. See [url=https://github.com/hubertdungen/SpaceBourne2-GroundWaypoints/blob/main/LICENSE]LICENSE[/url].
+MIT. See [url=https://github.com/hubertdungen/SpaceBourne2-GroundWaypoints/blob/mainLICENSE]LICENSE[/url].
