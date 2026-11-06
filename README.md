@@ -7,7 +7,7 @@ step out or jump on the hoverbike, and those markers vanish: you cross the plane
 Ground Waypoints brings them back on the ground: a marker, the name and the distance, in the same
 colours the game uses from the ship.
 
-Version 0.1.2 · [Nexus Mods page](https://www.nexusmods.com/spacebourne2/mods/13) · UE4SS Lua mod · works alone or with the rest of the
+Version 0.1.3 · [Nexus Mods page](https://www.nexusmods.com/spacebourne2/mods/13) · UE4SS Lua mod · works alone or with the rest of the
 [realism set](#part-of-the-spacebourne-2-realism-set). Idea by **TheCalcMan** (Steam).
 
 ## What it does
@@ -40,7 +40,7 @@ Option A (recommended): the [SpaceBourne 2 Realism installer](https://www.nexusm
 
 Option B, manual:
 
-1. Download `GroundWaypoints-0.1.2.zip` from the
+1. Download `GroundWaypoints-0.1.3.zip` from the
    [releases](https://github.com/hubertdungen/SpaceBourne2-GroundWaypoints/releases).
 2. Extract it into the game folder (`...\steamapps\common\SpaceBourne 2\`). It adds
    `SB2\Binaries\Win64\Mods\GroundWaypoints\`; the `enabled.txt` inside turns it on.
@@ -90,6 +90,9 @@ Tested in game on 2026-10-31 on planet Oclite (details in [DESIGN.md](DESIGN.md)
 
 0.1.2 (places found again after a dungeon) was checked against the mod's own logic; it has not
 been run in a dungeon yet.
+0.1.3 (places learnt from their ReceiveBeginPlay on the game thread instead of NotifyOnNewObject) was
+smoke-tested on 2026-11-06 with the whole set at a station: no crash, the four hooks registered. A
+planet surface was not visited in that test.
 <!-- /nexus:skip -->
 
 Known limits:

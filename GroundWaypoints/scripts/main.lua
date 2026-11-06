@@ -15,7 +15,7 @@
       (position, name, flags) is kept, never actor objects between frames.
 ]]
 
-local VERSION = "0.1.2"
+local VERSION = "0.1.3"
 
 -- Game names (the only things to fix after a game patch) -------------------------------------
 local G = {
@@ -189,8 +189,9 @@ end
 -- Registry of planet places ------------------------------------------------------------------
 -- GameplayStatics:GetAllActorsOfClass is not usable from UE4SS 3.0.1 Lua (its array out-parameter
 -- came back empty and the game crashed inside UE4SS, tested 2026-10-31), and FindAllOf costs
--- 50-70 ms. So the game tells us about each place when it creates it (NotifyOnNewObject; the
--- callback only queues it). No actor object is kept: each place is found again by its path
+-- 50-70 ms. So each place reports itself when it
+-- begins play (a hook on its ReceiveBeginPlay, on the game thread; 0.1.2's NotifyOnNewObject ran on
+-- the loading thread and could crash UE4SS on a level load). No actor object is kept: each place is found again by its path
 -- (StaticFindObject, ~0 ms while it exists; the address must match), so a destroyed and freed
 -- actor is never touched. Places are forgotten without being touched when the player leaves the
 -- planet surface or the level changes; FindAllOf (once per class) refills the list only when
@@ -265,6 +266,11 @@ local function maintain(now, where, onFootOrBike)
         -- interest the game spawns again came back after a dungeon).
         dropBefore(now, where ~= G.Space)
     end
+    if atSurface and not R.wasSurface then
+        -- arriving on a surface: one lookup per class (a place class whose BeginPlay skips its
+        -- parent's would never report itself)
+        for _, k in ipairs(KINDS) do R.needSeed[k] = true end
+    end
     R.wasSurface = atSurface
     if not atSurface then return end
     if onFootOrBike then -- safety net: one FindAllOf per class (50-70 ms), only when needed
@@ -307,8 +313,12 @@ local function registerNotify(now)
             local cls = findObj(G.Classes[k], now)
             if cls then
                 local kind = k
-                local ok, err = pcall(NotifyOnNewObject, G.Classes[k], function(obj)
-                    R.pending[#R.pending + 1] = { obj = obj, kind = kind, born = os.clock() }
+                -- 0.1.3: the place's own BeginPlay, on the game thread. 0.1.2 used NotifyOnNewObject,
+                -- whose callback UE4SS runs on whatever thread creates the object (the loading thread
+                -- during a level load), which could crash inside UE4SS (2026-11-06).
+                local ok, err = pcall(RegisterHook, G.Classes[k] .. ":ReceiveBeginPlay", function(self)
+                    local o = self:get()
+                    if valid(o) then track(o, kind, os.clock()) end
                 end)
                 if ok then
                     R.notified[k] = true

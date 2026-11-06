@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.1.3 — 2026-11-06
+
+- **Fix: a possible crash while a level loads.** The mod learnt each new place through a UE4SS
+  feature that runs on the game's loading thread, and that could crash the game ("Fatal Error!")
+  during a level load. Places now report themselves when they appear in the world, on the game's
+  own thread. On arriving on a planet the mod also looks the places up once, as a safety net.
+- Tested in game with the whole realism set: no crash, the hooks register.
+
 ## 0.1.2 — 2026-11-01
 
 Thanks to **TheCalcMan** (Steam) for the report.
