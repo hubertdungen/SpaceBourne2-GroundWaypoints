@@ -591,12 +591,14 @@ local function guarded(ctx, sx, sy)
         if errors >= 25 then warn("switched off after repeated errors") end
     end
 end
--- Once a second on the game thread, pumped by the ALS character tick (gametick.lua, 0.1.4). Until
+-- Once a second on the game thread, pumped by the HUD draw, with the ALS character tick as a
+-- fallback (gametick.lua, 0.1.4). Until
 -- 0.1.3 this was LoopAsync + ExecuteInGameThread: called from UE4SS's async thread,
 -- ExecuteInGameThread writes a map all mods share without a lock, and two mods doing it at once
 -- crashed the game (UE4SS.dll+0x87c104). After each load (ClientRestart) the pump hook is set again.
 local GT = require("gametick")
 GT.log = function(msg) warn(msg) end
+GT.drive(GT.HUD_TICK, "hud")
 GT.drive(GT.FOOT_TICK, "foot")
 GT.boot()
 GT.every(1.0, function(now)
