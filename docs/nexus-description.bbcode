@@ -2,22 +2,43 @@
 
 From your ship, SpaceBourne 2 marks a planet's outposts, cities, dungeons and mission sites. Land, step out or jump on the hoverbike, and those markers vanish: you cross the planet guessing. Ground Waypoints brings them back on the ground: a marker, the name and the distance, in the same colours the game uses from the ship.
 
-Version 0.1.3 · [url=https://www.nexusmods.com/spacebourne2/mods/13]Nexus Mods page[/url] · UE4SS Lua mod · works alone or with the rest of the [url=#part-of-the-spacebourne-2-realism-set]realism set[/url]. Idea by [b]TheCalcMan[/b] (Steam).
+An idea by [b]TheCalcMan[/b] (Steam).
+
+[b]Links:[/b] [url=https://github.com/hubertdungen/SpaceBourne2-GroundWaypoints]GitHub[/url] · [url=https://www.nexusmods.com/spacebourne2/mods/13]Nexus Mods[/url] · UE4SS Lua mod · works alone or with the rest of the realism set.
+[b]Install the whole realism set in one go:[/b] the [url=https://github.com/hubertdungen/SpaceBourne2-Realism]SpaceBourne 2 Realism installer[/url] ([url=https://www.nexusmods.com/spacebourne2/mods/11]Nexus[/url]).
 
 [line]
-[size=5][b]What it does[/b][/size]
+[size=5][b]Features[/b][/size]
+
+[size=4][b]What is marked[/b][/size]
 
 [list]
-[*][b]On foot and on the hoverbike[/b], while you are on a planet's surface:
-    - [b]places[/b]: outposts, cities, villages, camps, wrecks;
-    - [b]locations[/b]: dungeons, caves and mission sites;
-    - [b]points of interest[/b] nearby: crash sites, traders and the like.
+[*][b]On foot and on the hoverbike,[/b] while you are on a planet's surface.
+[*][b]Places:[/b] outposts, cities, villages, camps, wrecks.
+[*][b]Locations:[/b] dungeons, caves and mission sites.
+[*][b]Points of interest[/b] nearby: crash sites, traders and the like.
+[/list]
+
+[size=4][b]How it looks[/b][/size]
+
+[list]
 [*][b]Same look as the ship's markers.[/b] Orange places, pink mission places, grey cleared dungeons. The name sits next to the marker with the distance below, in the game's format (152m, 3.4km).
-[*][b]Arrows at the screen edge[/b] for the nearest places behind you or off screen, with their distance.
-[*][b]Calm.[/b] At most 12 markers, nearest first (mission places always first). Nothing within 40 m (you are there). Points of interest only within 5 km; places and locations up to 600 km (a planet's outposts and dungeons are often 100–500 km apart).
+[*][b]Arrows at the screen edge[/b] for the nearest places behind you or off screen.
+[*][b]Follows the game's indicator scale[/b] setting, like the ship's markers.
+[/list]
+
+[size=4][b]Calm, not cluttered[/b][/size]
+
+[list]
+[*][b]A sensible number.[/b] At most 12 markers, nearest first (mission places always first). Nothing within 40 m (you are there). Points of interest only within 5 km; places and locations up to 600 km (a planet's outposts and dungeons are often 100–500 km apart).
 [*][b]No double markers.[/b] Mission objectives and the few places the game already shows on the hoverbike stay the game's own.
 [*][b]Out of the way.[/b] Hidden in the ship, in dungeons and stations, in photo mode, with a menu open, and when the game hides its HUD.
-[*][b]On by default, no key needed.[/b] Markers appear on planets by themselves.
+[/list]
+
+[size=4][b]On by default[/b][/size]
+
+[list]
+[*]No key needed: markers appear on planets by themselves.
 [/list]
 
 [line]
@@ -25,23 +46,21 @@ Version 0.1.3 · [url=https://www.nexusmods.com/spacebourne2/mods/13]Nexus Mods 
 
 [list]
 [*]SpaceBourne 2 (Steam).
-[*][url=https://github.com/UE4SS-RE/RE-UE4SS/releases/tag/v3.0.1]UE4SS 3.0.1[/url], a free script loader for Unreal Engine games. Installing HTR or the realism set installer installs it too.
+[*][url=https://github.com/UE4SS-RE/RE-UE4SS/releases/tag/v3.0.1]UE4SS 3.0.1[/url], a free script loader for Unreal Engine games (the realism installer installs it for you).
 [/list]
 
 [line]
 [size=5][b]Install[/b][/size]
 
-Option A (recommended): the [url=https://www.nexusmods.com/spacebourne2/mods/11]SpaceBourne 2 Realism installer[/url].
+[b]A. SpaceBourne 2 Realism installer (recommended)[/b] Get it on [url=https://www.nexusmods.com/spacebourne2/mods/11]Nexus[/url] or [url=https://github.com/hubertdungen/SpaceBourne2-Realism/releases/latest]GitHub[/url]. Tick Ground Waypoints and any other mods of the set: it installs UE4SS if you don't have it, switches the mods on and keeps them updated.
 
-Option B, manual:
-
+[b]B. Manual[/b] (Nexus file, or the zip on the [url=https://github.com/hubertdungen/SpaceBourne2-GroundWaypoints/releases]releases page[/url])
 [list=1]
-[*]Download GroundWaypoints-0.1.3.zip from the [url=https://github.com/hubertdungen/SpaceBourne2-GroundWaypoints/releases]releases[/url].
-[*]Extract it into the game folder (...\steamapps\common\SpaceBourne 2\). It adds SB2\Binaries\Win64\Mods\GroundWaypoints\; the enabled.txt inside turns it on.
-[*]That's it: land on a planet and step out.
+[*]Extract the zip into your game folder (...\SpaceBourne 2, the one with SpaceBourne2.exe). It creates SB2\Binaries\Win64\Mods\GroundWaypoints and switches itself on.
+[*]No UE4SS yet? Get [url=https://github.com/UE4SS-RE/RE-UE4SS/releases/tag/v3.0.1]RE-UE4SS 3.0.1[/url] and copy dwmapi.dll, UE4SS.dll and UE4SS-settings.ini into SpaceBourne 2\SB2\Binaries\Win64\.
 [/list]
 
-Uninstall: delete SB2\Binaries\Win64\Mods\GroundWaypoints. Ground Waypoints never writes to your saves.
+[b]Uninstall:[/b] untick Ground Waypoints in the installer or delete the GroundWaypoints folder. Ground Waypoints never writes to your saves.
 
 [line]
 [size=5][b]Controls[/b][/size]
@@ -64,44 +83,42 @@ Edit Mods\GroundWaypoints\scripts\config.lua. Every line is optional.
 [*]Look: MarkerSize, TextScale, HeightOffset, ShowNames, and Colors.
 [/list]
 
-The text follows the game's own [b]indicator scale[/b] setting, like the ship's markers.
-
 [line]
 [size=5][b]How it works[/b][/size]
 
-The game draws all its markers on the HUD canvas (Q1Hud). On foot its planet-place function stops at once, and on the hoverbike it only draws an active mission's site. There is no switch to flip, so Ground Waypoints draws the markers itself on the same canvas, with the game's own font, icons and colours. It reads the places' positions and names a few times a second and keeps only plain data; each frame it only places and draws the markers. Details: [url=https://github.com/hubertdungen/SpaceBourne2-GroundWaypoints/blob/mainDESIGN.md]DESIGN.md[/url].
+The game draws all its markers on the HUD canvas (Q1Hud). On foot its planet-place function stops at once, and on the hoverbike it only draws an active mission's site. There is no switch to flip, so Ground Waypoints draws the markers itself on the same canvas, with the game's own font, icons and colours. It reads the places' positions and names a few times a second and keeps only plain data; each frame it only places and draws the markers. Details: [url=https://github.com/hubertdungen/SpaceBourne2-GroundWaypoints/blob/main/DESIGN.md]DESIGN.md[/url].
 
 [line]
-[size=5][b]Status and known limits[/b][/size]
-
-Known limits:
+[size=5][b]Known limits[/b][/size]
 
 [list]
 [*][b]Only what the planet has loaded.[/b] Places appear once the game has created them, as in the ship.
-[*][b]Point-of-interest names come from the game's internal names[/b] ("Ship Crash", "Raided House"…), so they are in English.
+[*][b]Point-of-interest names come from the game's internal names[/b] ("Ship Crash", "Raided House"...), so they are in English.
 [*][b]Two places in the same direction[/b] can overlap their labels.
-[*][b]If the mod is reloaded mid-game[/b], the first time you step out on a planet it may search once for places it missed: about 0.2 s of small stutters.
 [/list]
+
+Version history: [url=https://github.com/hubertdungen/SpaceBourne2-GroundWaypoints/blob/main/CHANGELOG.md]CHANGELOG.md[/url].
 
 [line]
-[size=5][b]Part of the SpaceBourne 2 realism set[/b][/size]
+[size=5][b]The SpaceBourne 2 realism set[/b][/size]
 
-This mod is part of the realism set, built around [url=https://www.nexusmods.com/spacebourne2/mods/4]Hardcore Tactical Realism[/url] as the core mod. HTR is not required: this mod works on its own or with any of the others. [b]Install them all at once[/b] with the [url=https://www.nexusmods.com/spacebourne2/mods/11]SpaceBourne 2 Realism installer[/url] ([url=https://github.com/hubertdungen/SpaceBourne2-Realism]GitHub[/url]): tick the mods you want, and it switches them on and keeps them up to date.
+Separate mods that work alone or in any combination. The [url=https://github.com/hubertdungen/SpaceBourne2-Realism]SpaceBourne 2 Realism installer[/url] ([url=https://www.nexusmods.com/spacebourne2/mods/11]Nexus[/url]) installs the ones you tick and keeps them updated.
 
 [list]
-[*][b]Hardcore Tactical Realism (HTR)[/b]: the core: realistic ballistics, wounds and tactical AI. [url=https://github.com/hubertdungen/SpaceBourne2-HardcoreTacticalRealism]GitHub[/url] · [url=https://www.nexusmods.com/spacebourne2/mods/4]Nexus[/url] · [url=https://steamcommunity.com/app/1646850/discussions/0/573805072991123580/]Steam[/url]
-[*][b]Split Controls[/b]: separate look inversion for ships and on foot. [url=https://github.com/hubertdungen/SpaceBourne2-SplitControls]GitHub[/url] · [url=https://www.nexusmods.com/spacebourne2/mods/5]Nexus[/url]
-[*][b]Silent Ops[/b]: realistic stealth, suppressors and silent takedowns. [url=https://github.com/hubertdungen/SpaceBourne2-SilentOps]GitHub[/url] · [url=https://www.nexusmods.com/spacebourne2/mods/6]Nexus[/url]
-[*][b]Gear Without Levels[/b]: any weapon or suit at any level, with small penalties. [url=https://github.com/hubertdungen/SpaceBourne2-GearWithoutLevels]GitHub[/url] · [url=https://www.nexusmods.com/spacebourne2/mods/7]Nexus[/url]
-[*][b]SB2 HOTAS[/b]: joystick, HOTAS, pedals, head tracking and triple screen. [url=https://github.com/hubertdungen/SpaceBourne2-HOTAS]GitHub[/url] · [url=https://www.nexusmods.com/spacebourne2/mods/8]Nexus[/url]
-[*][b]Faction Power[/b]: dungeons, sales and missions earn your faction power. [url=https://github.com/hubertdungen/SpaceBourne2-FactionPower]GitHub[/url] · [url=https://www.nexusmods.com/spacebourne2/mods/9]Nexus[/url]
-[*][b]Tactical Engineering[/b]: deployable turrets and barricades that take time to set up. [url=https://github.com/hubertdungen/SpaceBourne2-TacticalEngineering]GitHub[/url] · [url=https://www.nexusmods.com/spacebourne2/mods/10]Nexus[/url]
-[*][b]Ammo Discipline[/b]: realistic ammo limits and scavenging. [url=https://github.com/hubertdungen/SpaceBourne2-AmmoDiscipline]GitHub[/url] · [url=https://www.nexusmods.com/spacebourne2/mods/12]Nexus[/url]
-[*][b]Ground Waypoints[/b] [i](this mod)[/i]: planet waypoints on foot and on the hoverbike. [url=https://github.com/hubertdungen/SpaceBourne2-GroundWaypoints]GitHub[/url] · [url=https://www.nexusmods.com/spacebourne2/mods/13]Nexus[/url]
-[*][b]Get Out of the Way[/b]: NPCs step aside naturally when you walk through them. [url=https://github.com/hubertdungen/SpaceBourne2-GetOutOfTheWay]GitHub[/url] · [url=https://www.nexusmods.com/spacebourne2/mods/14]Nexus[/url]
+[*][b][url=https://github.com/hubertdungen/SpaceBourne2-HardcoreTacticalRealism]Hardcore Tactical Realism[/url][/b] ([url=https://www.nexusmods.com/spacebourne2/mods/4]Nexus[/url]): realistic ballistics, wounds and tactical AI. The core of the set.
+[*][b][url=https://github.com/hubertdungen/SpaceBourne2-SilentOps]Silent Ops[/url][/b] ([url=https://www.nexusmods.com/spacebourne2/mods/6]Nexus[/url]): stealth, silent takedowns and suppressors.
+[*][b][url=https://github.com/hubertdungen/SpaceBourne2-AmmoDiscipline]Ammo Discipline[/url][/b] ([url=https://www.nexusmods.com/spacebourne2/mods/12]Nexus[/url]): carried ammo limits and scavenging, so every magazine counts.
+[*][b][url=https://github.com/hubertdungen/SpaceBourne2-GearWithoutLevels]Gear Without Levels[/url][/b] ([url=https://www.nexusmods.com/spacebourne2/mods/7]Nexus[/url]): use gear above your level, with small handling penalties.
+[*][b][url=https://github.com/hubertdungen/SpaceBourne2-TacticalFirstPerson]Tactical First Person[/url][/b] ([url=https://www.nexusmods.com/spacebourne2/mods/15]Nexus[/url]): first person on foot, weapons held up, aiming down the sights.
+[*][b][url=https://github.com/hubertdungen/SpaceBourne2-TacticalEngineering]Tactical Engineering[/url][/b] ([url=https://www.nexusmods.com/spacebourne2/mods/10]Nexus[/url]): realistic deployable turrets.
+[*][b][url=https://github.com/hubertdungen/SpaceBourne2-GetOutOfTheWay]Get Out of the Way[/url][/b] ([url=https://www.nexusmods.com/spacebourne2/mods/14]Nexus[/url]): NPCs step aside naturally when you walk through them.
+[*][b][url=https://github.com/hubertdungen/SpaceBourne2-GroundWaypoints]Ground Waypoints[/url][/b] ([url=https://www.nexusmods.com/spacebourne2/mods/13]Nexus[/url]): planet waypoints on foot and on the hoverbike.
+[*][b][url=https://github.com/hubertdungen/SpaceBourne2-FactionPower]Faction Power[/url][/b] ([url=https://www.nexusmods.com/spacebourne2/mods/9]Nexus[/url]): dungeons, strategic sales and missions earn your faction power.
+[*][b][url=https://github.com/hubertdungen/SpaceBourne2-BiggerArmies]Bigger Armies[/url][/b] ([url=https://www.nexusmods.com/spacebourne2/mods/17]Nexus[/url]): twice the general slots for your faction's ground and space forces.
+[*][b][url=https://github.com/hubertdungen/SpaceBourne2-ClearHUD]Clear HUD[/url][/b] ([url=https://www.nexusmods.com/spacebourne2/mods/16]Nexus[/url]): a reticle you can see and HUD colours of your choice.
+[*][b][url=https://github.com/hubertdungen/SpaceBourne2-SplitControls]Split Controls[/url][/b] ([url=https://www.nexusmods.com/spacebourne2/mods/5]Nexus[/url]): separate vertical invert for ship and on foot, per device.
+[*][b][url=https://github.com/hubertdungen/SpaceBourne2-HOTAS]SB2 HOTAS[/url][/b] ([url=https://www.nexusmods.com/spacebourne2/mods/8]Nexus[/url]): HOTAS, rudder pedals, triple screens and head tracking.
 [/list]
-
-Coming soon: Tactical First Person.
 
 [line]
 [size=5][b]Thanks[/b][/size]
@@ -111,4 +128,4 @@ Coming soon: Tactical First Person.
 [line]
 [size=5][b]License[/b][/size]
 
-MIT. See [url=https://github.com/hubertdungen/SpaceBourne2-GroundWaypoints/blob/mainLICENSE]LICENSE[/url].
+MIT. See [url=https://github.com/hubertdungen/SpaceBourne2-GroundWaypoints/blob/main/LICENSE]LICENSE[/url].
