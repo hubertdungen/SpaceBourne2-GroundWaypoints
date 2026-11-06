@@ -15,7 +15,7 @@
       (position, name, flags) is kept, never actor objects between frames.
 ]]
 
-local VERSION = "0.1.3"
+local VERSION = "0.1.4"
 
 -- Game names (the only things to fix after a game patch) -------------------------------------
 local G = {
@@ -591,26 +591,30 @@ local function guarded(ctx, sx, sy)
         if errors >= 25 then warn("switched off after repeated errors") end
     end
 end
-LoopAsync(1000, function()
-    ExecuteInGameThread(function()
-        local now = os.clock()
-        if now < hudNext then return end
-        local c = StaticFindObject(G.HudClass)
-        local a = valid(c) and c:GetAddress() or nil
-        if a then
-            hudNext, hudWait = now + 5, 1
-            if a ~= hudAddr then
-                local ok, err = pcall(RegisterHook, G.DrawHook, guarded)
-                if ok then hudAddr = a; log("hooked " .. G.DrawHook) else warn("could not hook HUD: " .. tostring(err)) end
-            end
-            registerNotify(now) -- the place classes are referenced by the HUD, so they load with it
-        else
-            hudAddr = nil
-            hudNext = now + hudWait
-            hudWait = math.min(hudWait * 2, 16)
+-- Once a second on the game thread, pumped by the ALS character tick (gametick.lua, 0.1.4). Until
+-- 0.1.3 this was LoopAsync + ExecuteInGameThread: called from UE4SS's async thread,
+-- ExecuteInGameThread writes a map all mods share without a lock, and two mods doing it at once
+-- crashed the game (UE4SS.dll+0x87c104). After each load (ClientRestart) the pump hook is set again.
+local GT = require("gametick")
+GT.log = function(msg) warn(msg) end
+GT.drive(GT.FOOT_TICK, "foot")
+GT.boot()
+GT.every(1.0, function(now)
+    if now < hudNext then return end
+    local c = StaticFindObject(G.HudClass)
+    local a = valid(c) and c:GetAddress() or nil
+    if a then
+        hudNext, hudWait = now + 5, 1
+        if a ~= hudAddr then
+            local ok, err = pcall(RegisterHook, G.DrawHook, guarded)
+            if ok then hudAddr = a; log("hooked " .. G.DrawHook) else warn("could not hook HUD: " .. tostring(err)) end
         end
-    end)
-    return false
+        registerNotify(now) -- the place classes are referenced by the HUD, so they load with it
+    else
+        hudAddr = nil
+        hudNext = now + hudWait
+        hudWait = math.min(hudWait * 2, 16)
+    end
 end)
 
 -- Optional toggle key (none by default; "0" is free in the game: no key preset, no raw key event) ------------------------------
