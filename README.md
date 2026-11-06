@@ -32,6 +32,8 @@ the rest of the realism set.
 - **Arrows at the screen edge** for the nearest places behind you or off screen.
 - **Follows the game's indicator scale** setting, like the ship's markers.
 
+![Ground Waypoints on foot: villages, outposts and a nearby point of interest with their distances](docs/markers-on-foot.jpg)
+
 ### Calm, not cluttered
 
 - **A sensible number.** At most 12 markers, nearest first (mission places always first). Nothing
